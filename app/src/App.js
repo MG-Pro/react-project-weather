@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import WeatherDisplay from './WeatherDisplay';
-import {Navbar, NavbarBrand, Container, Label, Input, Row, Col} from "reactstrap";
+import DropdownInput from './DropdownInput'
+import {Navbar, NavbarBrand, Container, Label, Row, Col} from "reactstrap";
 import './App.css';
 
 
@@ -16,7 +17,7 @@ class App extends Component {
   }
 
 
-  componentWillMount() {
+  componentDidMount() {
     fetch('http://api.sypexgeo.net/json/').then(res => res.json()).then(json => {
       this.setState({
         coords: {
@@ -41,7 +42,7 @@ class App extends Component {
           <Row>
             <Col className='mt-3 mb-3'>
               <Label for="city">City</Label>
-              <Input type="text" id="city" placeholder="Start input" />
+              <DropdownInput type="text" id="city" placeholder="Start input city" />
             </Col>
           </Row>
           <Row>
