@@ -16,7 +16,6 @@ class App extends Component {
     }
   }
 
-
   componentDidMount() {
     fetch('http://api.sypexgeo.net/json/').then(res => res.json()).then(json => {
       this.setState({
@@ -25,8 +24,31 @@ class App extends Component {
           lon: json.city.lon
         }
       });
-    });
+    })
   }
+
+  getCity = (city) => {
+    fetch(`https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Token 48749cf8e4cb2fd2cd50a24b9fb4991cc33a0194'
+      },
+      body: JSON.stringify({
+        query: city.unrestricted_value,
+        count: 1,
+      })
+    })
+      .then(res => res.json()).then(json => {
+        console.log(json);
+      this.setState({
+        coords: {
+          lat: json.suggestions[0].data.geo_lat,
+          lon: json.suggestions[0].data.geo_lon
+        }
+      });
+    })
+  };
 
   render() {
     return (
@@ -42,11 +64,11 @@ class App extends Component {
           <Row>
             <Col className='mt-3 mb-3'>
               <Label for="city">City</Label>
-              <DropdownInput type="text" id="city" placeholder="Start input city" />
+              <DropdownInput onSelectCity={this.getCity}/>
             </Col>
           </Row>
           <Row>
-            <Col sm = {8} md = {{size: 6, offset: null}}>
+            <Col>
               <WeatherDisplay coords = {this.state.coords}/>
             </Col>
           </Row>

@@ -10,9 +10,8 @@ class WeatherDisplay extends Component {
 
   getData(coords) {
     const URL = `http://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=b1b35bba8b434a28a0be2a3e1071ae5b&units=imperial`;
-
     fetch(URL).then(res => res.json()).then(json => {
-      this.setState({ weatherData: json });
+      this.setState({weatherData: json});
     });
   }
 
@@ -33,7 +32,7 @@ class WeatherDisplay extends Component {
       <div>
         <h1>
           {weather.main} in {weatherData.name}
-          <img src={iconUrl} alt={weatherData.description} />
+          <img src = {iconUrl} alt = {weatherData.description}/>
         </h1>
         <p>Current: {((weatherData.main.temp - 32) / 1.8).toFixed(1)} °C</p>
         <p>High: {((weatherData.main.temp_max - 32) / 1.8).toFixed(1)} °C</p>
@@ -43,4 +42,5 @@ class WeatherDisplay extends Component {
     );
   }
 }
+
 export default WeatherDisplay;
