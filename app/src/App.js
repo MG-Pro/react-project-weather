@@ -17,7 +17,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://api.sypexgeo.net/json/').then(res => res.json()).then(json => {
+    fetch('https://api.sypexgeo.net/json/').then(res => res.json()).then(json => {
       this.setState({
         coords: {
           lat: json.city.lat,
@@ -56,7 +56,7 @@ class App extends Component {
         <Navbar dark color = {'primary'}>
           <Container>
             <NavbarBrand href = "/">
-              React Simple Weather App
+              Simple Weather
             </NavbarBrand>
           </Container>
         </Navbar>
