@@ -52,7 +52,6 @@ class DropdownInput extends Component {
   }
 
   menuHandler = (e) => {
-    console.log(e.target);
     this.input.value = e.target.textContent;
     this.setState({
       show: ''

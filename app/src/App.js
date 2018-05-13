@@ -36,16 +36,15 @@ class App extends Component {
       },
       body: JSON.stringify({
         query: city.unrestricted_value,
-        count: 1,
+        count: 1
       })
     })
       .then(res => res.json()).then(json => {
-        console.log(json);
-      this.setState({
-        coords: {
-          lat: json.suggestions[0].data.geo_lat,
-          lon: json.suggestions[0].data.geo_lon
-        }
+        this.setState({
+          coords: {
+            lat: json.suggestions[0].data.geo_lat,
+            lon: json.suggestions[0].data.geo_lon
+          }
       });
     })
   };
@@ -62,9 +61,9 @@ class App extends Component {
         </Navbar>
         <Container>
           <Row>
-            <Col className='mt-3 mb-3'>
-              <Label for="city">City</Label>
-              <DropdownInput onSelectCity={this.getCity}/>
+            <Col className = 'mt-3 mb-3'>
+              <Label for = "city">City</Label>
+              <DropdownInput onSelectCity = {this.getCity}/>
             </Col>
           </Row>
           <Row>
