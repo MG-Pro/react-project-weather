@@ -2,7 +2,7 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://mg-pro.github.io/react-project-weather",
+  "homepage": "https://mg-pro.github.io/react-project-weather/",
   "dependencies": {
     "bootstrap": "^4.1.1",
     "bootswatch": "^4.1.1",
