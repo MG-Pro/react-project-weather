@@ -1,2 +1,0 @@
-# react-project-weather
-## Demo 

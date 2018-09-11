@@ -6,3 +6,8 @@ body {
 .dropdown-item {
   cursor: pointer;
 }
+
+h1 {
+  color: #3aaa71;
+  text-align: center;
+}
